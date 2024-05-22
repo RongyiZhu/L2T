@@ -26,14 +26,14 @@ class Attack(object):
         if norm not in ['l2', 'linfty']:
             raise Exception("Unsupported norm {}".format(norm))
         self.attack = attack
-        #self.model = self.load_model(model_name)
-        self.model = self.load_ens_model()
+        self.model = self.load_model(model_name)
+        #self.model = self.load_ens_model()
         self.epsilon = epsilon
         self.targeted = targeted
         self.random_start = random_start
         self.norm = norm
-        self.device = next(self.model.models[0].parameters()).device if device is None else device
-        #self.device = next(self.model.parameters()).device if device is None else device
+        #self.device = next(self.model.models[0].parameters()).device if device is None else device
+        self.device = next(self.model.parameters()).device if device is None else device
         self.loss = self.loss_function(loss)
 
     def load_model(self, model_name):

@@ -37,7 +37,7 @@ class RWAug_Search:
       assert len(self.idxs) == self.n
       #print(self.idxs)
       for idx in self.idxs:
-        print(op_list[idx], type(op_list[idx]))
+        #print(op_list[idx], type(op_list[idx]))
         img = op_list[idx](img)
       return img
 

@@ -10,7 +10,7 @@ def get_parser():
     parser = argparse.ArgumentParser(description='Generating transferable adversaria examples')
     parser.add_argument('-e', '--eval', action='store_true', help='attack/evluation')
     parser.add_argument('--epoch', default=10, type=int, help='the iterations for updating the adversarial patch')
-    parser.add_argument('--batchsize', default=1, type=int, help='the bacth size')
+    parser.add_argument('--batchsize', default=10, type=int, help='the bacth size')
     parser.add_argument('--eps', default=16 / 255, type=float, help='the stepsize to update the perturbation')
     parser.add_argument('--alpha', default=1.6 / 255, type=float, help='the stepsize to update the perturbation')
     parser.add_argument('--momentum', default=0., type=float, help='the decay factor for momentum based attack')
