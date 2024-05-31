@@ -368,12 +368,11 @@ class affine():
         
     def __call__(self, x):
         return torch.cat([transforms.functional.affine(img=x, angle=0, translate=[self.offset*(i+1)/self.num_scale, self.offset*(i+1)/self.num_scale], scale=1, shear=0) for i in range(self.num_scale)])
+
         
-op_list = [sim(1), sim(2), sim(3), sim(4), sim(5)]
-        
-'''op_list = [#identity, #0
-           #rotate(30,5), rotate(60,5), rotate(90,5), rotate(120,5), rotate(150,5),rotate(180,5),rotate(210,5),rotate(240,5),rotate(270,5),rotate(300,5), #1-10
-           sim(1), sim(2), sim(3), sim(4), sim(5),#sim(6),sim(7),sim(8),sim(9),sim(10), #11-20
+op_list = [identity, #0
+           rotate(30,5), rotate(60,5), rotate(90,5), rotate(120,5), rotate(150,5),rotate(180,5),rotate(210,5),rotate(240,5),rotate(270,5),rotate(300,5), #1-10
+           sim(1), sim(2), sim(3), sim(4), sim(5),sim(6),sim(7),sim(8),sim(9),sim(10), #11-20
            dim(1.1),dim(1.15),dim(1.2),dim(1.25),dim(1.3),dim(1.35),dim(1.4),dim(1.45),dim(1.5),dim(1.55), #21-30
            blockshuffle(3), blockshuffle(4), blockshuffle(5), blockshuffle(6), blockshuffle(7),blockshuffle(8),blockshuffle(9),blockshuffle(10),blockshuffle(11),blockshuffle(12), #31-40
            admix(1,0.2),admix(2,0.2),admix(3,0.2),admix(4,0.2),admix(5,0.2),admix(1,0.4),admix(2,0.4),admix(3,0.4),admix(4,0.4),admix(5,0.4), #41-50
@@ -382,10 +381,8 @@ op_list = [sim(1), sim(2), sim(3), sim(4), sim(5)]
            ssm(0.2), ssm(0.4), ssm(0.5), ssm(0.6), ssm(0.8), ssm(0.1), ssm(0.3), ssm(0.7), ssm(0.9), # 71-80
            crop(0.1), crop(0.2), crop(0.3), crop(0.4), crop(0.5), crop(0.6), crop(0.7), crop(0.8), crop(0.9), # 81-90
            affine(0.5), affine(0.55), affine(0.6), affine(0.65), affine(0.7), affine(0.75), affine(0.8), affine(0.85), affine(0.9), # 91-100
-          ] '''
+          ] 
 
-
-#op_list = [vertical_shift, horizontal_shift, vertical_flip, horizontal_flip, rotate180, scale, add_noise]
 
 
 class L2T(Attack):
